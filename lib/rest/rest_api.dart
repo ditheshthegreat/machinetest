@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:ditheshv/REST/app_exceptions.dart';
+import 'package:ditheshv/rest/app_exceptions.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 
@@ -21,10 +21,10 @@ class RestAPI {
     }
   }
 
-  Future<Map<String, dynamic>> get(String url) async {
+  Future<T> get<T>(String url) async {
     Map<String, String> headers = {"Accept": "application/json"};
     print('Api Get,headers: $headers url $url');
-    Map<String, dynamic> responseJson;
+    T responseJson;
     try {
       Response response = await http.get(url, headers: headers);
       print('Api Get, url $url');
@@ -43,13 +43,12 @@ class RestAPI {
   dynamic _returnResponse(http.Response response) {
     print('StatusCode :: ${response.statusCode}');
     switch (response.statusCode) {
-
       case 200:
-        Map<String, dynamic> responseJson = json.decode(response.body);
+       var responseJson = json.decode(response.body);
         return responseJson;
       case 404:
       case 400:
-        throw BadRequestException(json.decode(response.body));
+        throw BadRequestException("Not Found");
         break;
       case 401:
       case 403:
