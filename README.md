@@ -5,12 +5,9 @@ Machine Test of Flutter project
 ## Getting Started
 
 This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- To search a github user you should click the search button on the top right corner
+- After the enter a username and click search in the keyboard
+- If a user is present in that username it will show the user profile and repository otherwise it will show error.
+- When you click the repository page, it will show all repository according to searched user
+- It will show the name of repository, last updated,fork count & language.
+- You can click on a card and it will open chrome browser and redirect to the reposiroty and it will show the details you have clicked.
